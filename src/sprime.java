@@ -23,6 +23,13 @@ public class sprime {
 	 * @return
 	 */
 	private static int firstSPrime(int len) {
+
+		for (int i = 0; i < len; i++) {
+			sprime.slen = i;
+			if (!isPrime(arr2int(i + 1))) {
+				nextSPrime();
+			}
+		}
 		sprime.slen = len - 1;
 		return arr2int(len);
 	}
@@ -44,7 +51,7 @@ public class sprime {
 						return -1;
 					}
 					carry++;
-					i_sprime[i] = 1;
+					i_sprime[i] = -1;
 					continue outlab;
 				} else {
 					if (i_sprime[i] == 2) {
@@ -54,6 +61,8 @@ public class sprime {
 					}
 				}
 				tmp = arr2int(i + 1);
+				// if (i == 1)
+				// System.out.println(tmp);
 			} while (!isPrime(tmp));
 			carry--;
 		}
